@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mission to Mars</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+    <div class='container'>
+        <div class='row' style="background-color:silver;">
+            <div class='col justify-content-center text-center'>
+                <h1>Mission to Mars</h1>
+                <a class="btn btn-primary" href="/scrape" role="button">Scrape New Data</a>
+                </br></br></br>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col'>
+                <h2>Latest Mars News</h2>
+                <h4>{{data.news_title}}</h3>
+                <a>{{data.news_paragraph}}</a>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-8'>
+                <h2>Featured Mars Image</h2>
+                <img src='data.featured_image_url'>
+            </div>
+            <div class='col-4'>
+                {{data.facts_html'}}
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col text-center'>
+                <h3>Mars Hemisphere</h3>
+                <hr>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-6'>
+                <div class="card" style="width: 18rem;">
+                    <img src={{data.hemi.keys()[0]}} class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title">{{data.hemi.values()[0]}}</h5>
+                    </div>
+            </div>
+            
+            <div class='col-6'>
+                <div class="card" style="width: 18rem;">
+                    <img src={{data.hemi.keys()[1]}} class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title">{{data.hemi.values()[1]}}</h5>
+                    </div>
+            </div>
+        </div>
+        <div class='row'>
+            <div class='col-6'>
+                <div class="card" style="width: 18rem;">
+                    <img src={{data.hemi.keys()[2]}} class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title">{{data.hemi.values()[2]}}</h5>
+                    </div>
+            </div>
+            <div class='col-6'>
+                <div class="card" style="width: 18rem;">
+                    <img src={{data.hemi.keys()[3]}} class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title">{{data.hemi.values()[3]}}</h5>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+
+</html>
