@@ -8,10 +8,10 @@ import pandas as pd
 
 
 def scrape():
-    web_info = {}
-    news_url = 'https://mars.nasa.gov/news/'
     executable_path = {'executable_path': 'chromedriver'}
     browser = Browser('chrome', **executable_path, headless=False)
+    news_url = 'https://mars.nasa.gov/news/'
+
     browser.visit(news_url)
     browser.is_element_present_by_css("ul.item_list li.slide", wait_time=1)
     news_html = browser.html
@@ -22,15 +22,12 @@ def scrape():
 
 
     featue_url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
-    executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=False)
     browser.visit(featue_url)
     featue_html = browser.html
     soup = bs(featue_html, 'html.parser')
     featured_group = soup.find("article", class_= "carousel_item")
     part_image_url = featured_group.find('a', class_='button fancybox')['data-fancybox-href']
     featured_image_url = f"https://www.jpl.nasa.gov{part_image_url}"
-
 
 
     facts_url = 'https://space-facts.com/mars/'
@@ -42,8 +39,6 @@ def scrape():
 
 
     hemi_url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars'
-    executable_path = {'executable_path': 'chromedriver'}
-    browser = Browser('chrome', **executable_path, headless=False)
     browser.visit(hemi_url)
     hemi_html = browser.html
     soup = bs(hemi_html, 'lxml')
@@ -59,13 +54,19 @@ def scrape():
         hemisphere_image_urls.append(info)
         browser.back()
 
-    web_info['news_title'] = news_title
-    web_info['news_paragraph'] = news_paragraph
-    web_info['featured_image_url'] = featured_image_url
-    web_info['facts_html'] = facts_html
-    web_info['hemi'] = hemisphere_image_urls
+    web_info = {
+        'news_title':news_title,
+        'news_paragraph':news_paragraph,
+        'featured_image_url':featured_image_url,
+        'facts_html':facts_html,
+        'hemi':hemisphere_image_urls
+    }
+
+    browser.quit()
+
 
     return web_info
+
 
 
 
