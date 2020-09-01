@@ -9,7 +9,13 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_app")
 @app.route("/")
 def home():
     mars_data = mongo.db.mars.find_one()
-    print(mars_data)
+    if mars_data is None:
+        mars_data = {
+        'news_title':'',
+        'news_paragraph':'',
+        'featured_image_url':'',
+        'facts_html':'',
+        'hemi': [{'img_url': ''} for x in range(0,4)]}
     return render_template("index.html",data=mars_data)
 
 

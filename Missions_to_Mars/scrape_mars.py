@@ -34,7 +34,7 @@ def scrape():
     tables = pd.read_html(facts_url)
     facts_df = tables[0]
     facts_df.columns = ['MARS PLANT PROFILE', 'Parameter']
-    facts_html = facts_df.to_html()
+    facts_html = facts_df.to_html(index=False)
     facts_html = facts_html.replace('\n','')
 
 
