@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mission to Mars</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <style>
+        table {
+            table-striped table-responsive-lg
+        }
+    </style> -->
 </head>
 <body>
     <div class='container'>
@@ -26,12 +31,12 @@
         </div>
 
         <div class='row'>
-            <div class='col-8'>
+            <div class='col-lg-8'>
                 <h2>Featured Mars Image</h2>
-                <img src='{{data.featured_image_url}}'>
+                <img src='{{data.featured_image_url}}' width=500px>
             </div>
-            <div class='col-4'>
-                <!-- {{data.facts_html}} -->
+            <div class='col-lg-4'>
+                {{data.facts_html | safe}}
             </div>
         </div>
 
@@ -42,18 +47,19 @@
             </div>
         </div>
         <div class='row'>
-            <div class='col-6'>
-                <div class="card" style="width: 18rem;">
-                    <img src='{{data.hemi[0].img_url}}' class="card-img-top">
+            <div class='col-lg-6 col-sm-3'>
+                <!-- style="width: 9rem;" -->
+                <div class="card" >
+                    <img src='{{data.hemi[0].img_url}}' class="card-img-top" width=500px>
                     <div class="card-body">
                       <h5 class="card-title">{{data.hemi[0].title}}</h5>
                     </div>
                 </div>
             </div>
 
-            <div class='col-6'>
-                <div class="card" style="width: 18rem;">
-                    <img src='{{data.hemi[1].img_url}}' class="card-img-top">
+            <div class='col-lg-6 col-sm-3 '>
+                <div class="card">
+                    <img src='{{data.hemi[1].img_url}}' class="card-img-top" width=500px>
                     <div class="card-body">
                       <h5 class="card-title">{{data.hemi[1].title}}</h5>
                     </div>
@@ -62,17 +68,17 @@
         </div>
 
         <div class='row'>
-            <div class='col-6'>
-                <div class="card" style="width: 18rem;">
-                    <img src='{{data.hemi[2].img_url}}' class="card-img-top">
+            <div class='col-lg-6 col-sm-3'>
+                <div class="card">
+                    <img src='{{data.hemi[2].img_url}}' class="card-img-top" width=500px>
                     <div class="card-body">
                       <h5 class="card-title">{{data.hemi[2].title}}</h5>
                     </div>
                 </div>
             </div>
-            <div class='col-6'>
-                <div class="card" style="width: 18rem;">
-                    <img src='{{data.hemi[3].img_url}}' class="card-img-top">
+            <div class='col-lg-6 col-sm-3'>
+                <div class="card">
+                    <img src='{{data.hemi[3].img_url}}' class="card-img-top" width=500px>
                     <div class="card-body">
                       <h5 class="card-title">{{data.hemi[3].title}}</h5>
                     </div>
